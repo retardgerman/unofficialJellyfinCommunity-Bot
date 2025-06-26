@@ -23,3 +23,5 @@ Thumbs.db
 # Temp folders
 tmp/
 temp/
+
+docker-compose.yml
