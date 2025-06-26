@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'index.js'
+      - 'commands/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'Dockerfile'
+      - '.dockerignore'
 
 jobs:
   build-and-deploy:
