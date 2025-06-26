@@ -1,0 +1,23 @@
+{
+  "name": "unofficialjellyfincommunity-bot",
+  "version": "1.0.0",
+  "description": "bot for the unofficial Jellyfin Community Discord",
+  "homepage": "https://github.com/retardgerman/unofficialJellyfinCommunity-Bot#readme",
+  "bugs": {
+    "url": "https://github.com/retardgerman/unofficialJellyfinCommunity-Bot/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/retardgerman/unofficialJellyfinCommunity-Bot.git"
+  },
+  "license": "ISC",
+  "author": "retardgerman",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "discord.js": "^14.21.0"
+  }
+}
