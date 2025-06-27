@@ -70,8 +70,12 @@ client.on('interactionCreate', async interaction => {
 client.on('messageCreate', async message => {
   if (message.author.bot) return;
 
-  if (hasPiracyKeywords(message.content)) {
-    await message.reply('Piracy is not supported. Please consider legal alternatives. 🎬');
+  const hasPiracy = hasPiracyKeywords(message.content);
+  if (hasPiracy) {
+    const command = client.commands.get("piracy");
+    if (command) {
+      await command.execute(message);
+    }
   }
 });
 
