@@ -1,0 +1,48 @@
+name: Commitlint
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install commitlint
+        run: npm install --no-save @commitlint/{config-conventional,cli}
+
+      - name: Run commitlint and capture output
+        id: commitlint
+        run: |
+          npx commitlint --from=origin/main --to=HEAD > commitlint-output.txt || true
+
+      - name: Comment on PR if lint errors exist
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if grep -q '✖' commitlint-output.txt; then
+            BODY=$(cat commitlint-output.txt | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+            PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+            curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -X POST \
+              -d "{\"body\": \"🚫 **Commitlint found issues with your commit messages**\\n\\n\`\`\`\n$BODY\n\`\`\`\\n🔧 Please use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) like:\\n- \`feat: add new feature\`\\n- \`fix: correct a bug\`\\n- \`chore: update dependencies\`\"}" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments"
+            exit 1
+          else
+            echo '✅ No commitlint issues'
+          fi
