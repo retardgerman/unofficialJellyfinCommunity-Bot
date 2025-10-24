@@ -85,7 +85,7 @@ function hasPiracyKeywords(text) {
   const piracyKeywords = [
     "1fichier", "123movies", "1337x", "alldebrid", "anonfiles",
     "aria2", "bayfiles", "bdrip", "bluray rip", "camrip", "codex", "crack", "cracked",
-    "ddl", "deluge", "direct download", "doodstream", "dvdrip", "eztvx", "fitgirl",
+    "deluge", "doodstream", "dvdrip", "ettv", "eztv", "eztvx", "fitgirl",
     "flixtor", "flixhq", "fmovies", "gofile", "gogoanime", "gomovies", "igg-games",
     "indexer", "jdownloader", "katcr", "keygen", "kickasstorrents", "lookmovie",
     "mediafire", "mega link", "monova", "myflixer", "nzb", "openload", "p2p", "peerflix",
