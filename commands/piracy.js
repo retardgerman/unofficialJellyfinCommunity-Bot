@@ -6,6 +6,6 @@ export default {
 		.setName('piracy')
 		.setDescription('Policy on piracy discussions.'),
 	async execute(interaction) {
-		await interaction.reply("🏴‍☠️ Discussions related to piracy or content acquisition are strictly prohibited on this server.\n\n This rule exists to ensure we avoid legal trouble and protect the future of this discord, as well as its reputation.");
+		await interaction.reply("🏴‍☠️ Discussions or content related to piracy or content acquisition are prohibited in this community. This rule exists to maintain a safe and respectful environment for all members, prevent legal issues or witch hunts, and protect the community’s integrity, credibility, and long-term stability");
 	},
 };
