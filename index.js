@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { Client, Collection, GatewayIntentBits, REST, Routes, MessageFlags } from 'discord.js';
+import { initializeReminders } from './reminderManager.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,6 +39,9 @@ const rest = new REST({ version: '10' }).setToken(TOKEN);
 
 client.once('ready', async () => {
   console.log(`✅ Bot is online as ${client.user.tag}`);
+
+  // Initialize reminder system
+  await initializeReminders(client);
 
   try {
     console.log('📥 Registering slash commands...');
