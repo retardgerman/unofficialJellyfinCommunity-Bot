@@ -1,12 +1,8 @@
 <p align="center">
-  <img src="https://i.imgur.com/e2t06Do.png" alt="Jellyfin Logo" width="100">
+  <img src="https://i.imgur.com/e2t06Do.png" alt="Jellyfin Logo" width="75">
 </p>
 
 <h1 align="center">JellyfinCommunity Discord Bot</h1>
-<p align="center">
-  <a href="https://discord.gg/MTM8dkjr93"><img src="https://img.shields.io/discord/SERVER_ID?color=5865F2&label=Discord&logo=discord&logoColor=white" alt="JellyfinCommunity Discord Server"></a>
-  <img src="https://img.shields.io/badge/node-%3E%3D16-brightgreen?logo=node.js&logoColor=white" alt="Node.js">
-</p>
 
 <p align="center">
   A Discord bot for the <a href="https://discord.gg/MTM8dkjr93">JellyfinCommunity Discord Server</a>
